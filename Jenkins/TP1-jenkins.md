@@ -12,7 +12,7 @@ Créer un **projet simple** sans script, basé sur des actions configurées dans
 3. Type : **Projet freestyle**  
 4. Configurer :  
    - **Description :** « Projet Freestyle de test »  
-   - **Build Triggers :** “Build périodique” → `H/5 * * * *` (toutes les 5 min)  
+   - **Build Triggers :** “Build périodique” → `H 23 * * *` (tout les jours a minuit)  
    - **Build Steps :**
      - “Exécuter une commande shell” :  
        ```bash
