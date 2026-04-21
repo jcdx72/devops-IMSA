@@ -1,0 +1,3 @@
+[node]
+ansible_node1 ansible_host=ipNode1 ansible_user=ansible_user
+ansible_node2 ansible_host=ipNode2 ansible_user=ansible_user

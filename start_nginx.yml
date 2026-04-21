@@ -1,0 +1,19 @@
+---
+- name: Démarrer Nginx et exposer un port
+  hosts: node
+  become: yes
+  tasks:
+    - name: Configurer Nginx pour écouter sur le port 8080
+      lineinfile:
+        path: /etc/nginx/sites-available/default
+        regexp: 'listen 80 default_server;'
+        line: 'listen 8080 default_server;'
+        backup: yes
+      notify:
+        - Redémarrer Nginx
+
+  handlers:
+    - name: Redémarrer Nginx
+      service:
+        name: nginx
+        state: restarted
