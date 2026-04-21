@@ -21,7 +21,6 @@
 - Aller dans Jenkins → **New Item**
 - Choisir **Pipeline**
 - Nom : `Maven-Docker-GitHub-Build`
-- Cliquer sur **OK**
 
 #### 1.2 Configurer le pipeline
 
