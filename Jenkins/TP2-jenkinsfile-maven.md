@@ -32,7 +32,7 @@
     https://github.com/<votre-namespace>/simple-java-maven-app.git
     ```
   - Branche : `main` ou `master`
-  - Script Path : `Jenkinsfile`
+  - Script Path : `jenkinsfile`
 
 ---
 
