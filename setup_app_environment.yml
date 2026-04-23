@@ -1,0 +1,32 @@
+# Exercice Ansible 
+#   Vous êtes administrateur système et devez préparer un environnement pour une nouvelle application. Cette application nécessite :
+#     Un répertoire dédié pour stocker des fichiers.
+#     Un groupe d'utilisateurs pour gérer les accès.
+#     Un utilisateur spécifique qui sera propriétaire du répertoire.
+#     Des permissions spécifiques sur le répertoire pour garantir la sécurité et l'accès
+
+- hosts: node
+  become: yes
+  tasks:
+  - name: Create a directory if it does not exist
+    ansible.builtin.file:
+      path: /app_data
+      state: directory
+
+  - name: Ensure group app_group exists
+    ansible.builtin.group:
+      name: app_group
+      state: present
+
+  - name: Add the user 'app_user' with a specific uid and a primary group of 'app_group'
+    ansible.builtin.user:
+      name: app_user
+      group: app_group
+      home: /home/app_user
+
+  - name: Change file ownership, group and permissions
+    ansible.builtin.file:
+      path: /app_data
+      owner: app_user
+      group: app_group
+      mode: '0744'
